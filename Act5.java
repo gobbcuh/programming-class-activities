@@ -1,4 +1,4 @@
-package practiceExercises;
+package practiceExercises2;
 
 import java.util.Scanner;
 
@@ -6,68 +6,51 @@ public class Act5
 {
     public static void main(String[] args) 
     {
-        Scanner scanner = new Scanner(System.in);
-
-        intro_loading();
+        Scanner s = new Scanner(System.in);
         
-        System.out.println("\n\t     ----------------- POLITICAL COLOR CHOICE -----------------");
-        System.out.println("\t\t\tFind out who your political color is!\n");
+        System.out.print("\n\tEnter 10 integers: ");
+        int input1 = s.nextInt();
+        int input2 = s.nextInt();
+        int input3 = s.nextInt();
+        int input4 = s.nextInt();
+        int input5 = s.nextInt();
+        int input6 = s.nextInt();
+        int input7 = s.nextInt();
+        int input8 = s.nextInt();
+        int input9 = s.nextInt();
+        int input10 = s.nextInt();
         
-        System.out.print("\t\tEnter your favorite color: ");
-        String color = scanner.next();
+        int[] userInput = new int[10];
+        userInput[0] = input1;
+        userInput[1] = input2;
+        userInput[2] = input3;
+        userInput[3] = input4;
+        userInput[4] = input5;
+        userInput[5] = input6;
+        userInput[6] = input7;
+        userInput[7] = input8;
+        userInput[8] = input9;
+        userInput[9] = input10;
         
-        evaluating_color();
+        System.out.print("\tDuplicate numbers: ");
+        boolean isDuplicateFound = false;
         
-        System.out.println("\n\n\t     ----------------------------------------------------------");
-
-        switch (color) 
+        for (int i = 0; i < 10; i++) 
         {
-            case "Red":
-                System.out.println("\tBongbong Marcos - Sige na, I respect your opinion.");
-                break;
-            case "Green":
-                System.out.println("\tSara Dutere - Ipamaglaki mo na, 'wag gawing confidential.");
-                break;
-            case "Blue":
-                System.out.println("\tIsko Moreno - Magaling siguro mag-budots 'no?");
-                break;
-            default:
-                System.out.println("\t\t     Baka ang political figure choice mo ay\n\t\t    hindi member ng Kadiliman VS Kasamaan Cult.");
-        }
-    }
-
-    public static void intro_loading() 
-    {
-        System.out.print("\n\n\n\t      Starting the program... Please wait! ");
-        for (int i = 0; i < 25; i++) 
-        {
-            try 
+            for (int j = i + 1; j < 10; j++) 
             {
-                Thread.sleep(100);
-            } 
-            catch (InterruptedException e) 
-            {
-                System.out.println("\t\tError in loading delay!");
+                if (userInput[i] == userInput[j]) 
+                {
+                    System.out.print(userInput[i] + " ");
+                    isDuplicateFound = true;
+                    break;
+                }
             }
-            System.out.print("█");
         }
-        System.out.println("\n");
-    }
-    
-    public static void evaluating_color() 
-    {
-        System.out.print("\n\t\tEvaluating your political color...");
-        for (int i = 0; i < 20; i++) 
+        
+        if (!isDuplicateFound) 
         {
-            try 
-            {
-                Thread.sleep(100);
-            } 
-            catch (InterruptedException e) 
-            {
-                System.out.println("\t\tError in loading delay!");
-            }
-            System.out.print(".");
+            System.out.println("\tNo duplicates found.");
         }
     }
 }

@@ -1,4 +1,4 @@
-package practiceExercises;
+package practiceExercises2;
 
 import java.util.Scanner;
 
@@ -7,62 +7,39 @@ public class Act7
     public static void main(String[] args) 
     {
         Scanner s = new Scanner(System.in);
-
-        intro_loading();
-
-        System.out.println("\t\t-------------- EVEN NUMBER SUM CALCULATOR ----------------");
-
-        System.out.print("\n\t\tEnter the upper limit for the even numbers sum: ");
-        int numLimit = s.nextInt();
-
-        int number = 2;
-        int sum = 0;
-
-        evaluating_sum();
-
-        while (number <= numLimit) 
+        
+        int[][] matrix = 
         {
-            sum = sum + number;
-            number = number + 2;
-        }
+            {44, 88, 48, 84},
+            {24, 42, 28, 82},
+            {68, 86, 64, 46},
+            {89, 98, 99, 49}
+        };
 
-        System.out.println("\t\t----------------------------------------------------------");
-        System.out.println("\t\t    The sum of even numbers from 2 to " + numLimit + " is: " + sum);
-    }
-
-    public static void intro_loading() 
-    {
-        System.out.print("\n\n\n\t      Starting the program... Please wait! ");
-        for (int i = 0; i < 25; i++) 
+        System.out.print("\n\tSearch Number: ");
+        int searchNum = s.nextInt();
+        
+        boolean found = false;
+        for (int i = 0; i < matrix.length; i++) 
         {
-            try 
+            for (int j = 0; j < matrix[i].length; j++) 
             {
-                Thread.sleep(100);
-            } 
-            catch (InterruptedException e) 
-            {
-                System.out.println("\t\tError in loading delay!");
+                if (matrix[i][j] == searchNum) 
+                {
+                    System.out.println("\tNumber found at row " + (i + 1) + ", column " + (j + 1));
+                    found = true;
+                    break;
+                }
             }
-            System.out.print("█");
-        }
-        System.out.println("\n");
-    }
-
-    public static void evaluating_sum() 
-    {
-        System.out.print("\n\t\tCalculating the sum of even numbers...");
-        for (int i = 0; i < 20; i++) 
-        {
-            try 
+            if (found) 
             {
-                Thread.sleep(100);
-            } 
-            catch (InterruptedException e) 
-            {
-                System.out.println("\t\tError in loading delay!");
+            	break;
             }
-            System.out.print(".");
         }
-        System.out.println("\n");
+        
+        if (!found) 
+        {
+            System.out.println("\tNumber not found in the matrix.");
+        }   
     }
 }

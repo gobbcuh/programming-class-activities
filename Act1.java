@@ -1,87 +1,55 @@
-package practiceExercises;
+package practiceExercises2;
 
 import java.util.Scanner;
 
-public class Act1 {
-
-    public static void main(String[] args) 
-    {
-        Scanner scanner = new Scanner(System.in);
-        
-        intro_loading();
-
-        System.out.println("\n\t     ---------------- AGE FORTUNE TRACKER ----------------");
-        
-        System.out.print("\n\t\tEnter your age: ");
-        int age = scanner.nextInt();
-        
-        analyzing_age();
-        
-        System.out.println("\t     -----------------------------------------------------");
-        
-        fortune_message(age);
-    }
-
-    public static void intro_loading() 
-    {
-        System.out.print("\n\n\n\t Starting the program... Please wait! ");
-        for (int i = 0; i < 25; i++) 
-        {
-            try 
-            {
-                Thread.sleep(100);
-            } 
-            catch (InterruptedException e) 
-            {
-                System.out.println("\t\tError in loading delay!");
-            }
-            System.out.print("█");
-        }
-        System.out.println("\n");
-    }
-
-    public static void analyzing_age() 
-    {
-        System.out.print("\n\t\tAnalyzing your age fortune...");
-        for (int i = 0; i < 20; i++) 
-        {
-            try 
-            {
-                Thread.sleep(120);
-            } 
-            catch (InterruptedException e) 
-            {
-                System.out.println("\t\tError in loading delay!");
-            }
-            System.out.print(".");
-        }
-        System.out.println("\n");
-    }
-
-    public static void fortune_message(int age) {
-        if (age < 13) 
-        {
-            System.out.println("\t\tBata ka pa! Enjoy life and cartoons!");
-        } 
-        else if (age >= 13 && age <= 19) 
-        {
-            System.out.println("\t\tA teenager! TikTok and mood swings everytime, 'no?");
-        } 
-        else if (age >= 20 && age <= 29) 
-        {
-            System.out.println("\t\tYou're in your 20s! Trabaho na (and stay broke)!");
-        } 
-        else if (age >= 30 && age <= 39) 
-        {
-            System.out.println("\t\tMag-asawa ka na!");
-        } 
-        else if (age >= 40 && age <= 59) 
-        {
-            System.out.println("\t\tYou're in your prime! Embrace the dad jokes boss.");
-        } 
-        else 
-        {
-            System.out.println("\t\tYou're a legend! Inuman na with Ponce Enrile!");
-        }
-    }
+public class Act1 
+{
+	public static void main(String[] args) 
+	{
+		Scanner s = new Scanner(System.in);
+		
+		double averageScore = 0.0;
+		int total = 0, highestScore, lowestScore;
+		int[] studentScores = new int[5];
+		
+		System.out.print("\n\tEnter score for student 1: ");
+		studentScores[0] = s.nextInt();
+		
+		System.out.print("\tEnter score for student 2: ");
+		studentScores[1] = s.nextInt();
+		
+		System.out.print("\tEnter score for student 3: ");
+		studentScores[2] = s.nextInt();
+		
+		System.out.print("\tEnter score for student 4: ");
+		studentScores[3] = s.nextInt();
+		
+		System.out.print("\tEnter score for student 5: ");
+		studentScores[4] = s.nextInt();
+		
+		for (int score : studentScores) 
+		{
+			total = total + score;
+		}
+		averageScore = total / 5.0;
+		System.out.println("\n\tAverage score: " + averageScore);
+		
+		highestScore = studentScores[0];
+		lowestScore = studentScores[0];
+		
+		for (int score : studentScores) 
+		{
+			if (score > highestScore) 
+			{
+				highestScore = score;
+			}
+			else if (score < lowestScore) 
+			{
+				lowestScore = score;
+			}
+		}
+		
+		System.out.println("\tHighest score: " + highestScore);
+		System.out.println("\tLowest score: " + lowestScore);
+	}
 }
