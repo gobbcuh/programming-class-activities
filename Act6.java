@@ -1,48 +1,65 @@
-package practiceExercises2;
+package practiceExercises;
+
+import java.util.Scanner;
 
 public class Act6 
 {
     public static void main(String[] args) 
     {
-        int[][] matrix = 
-        {
-            {1, 2, 3},
-            {4, 5, 6},
-            {7, 8, 9}
-        };
+        Scanner s = new Scanner(System.in);
 
-        int[] sumOfRow = new int[3];
-        int[] sumOfColumn = new int[3];
+        intro_loading();
+        
+        System.out.println("\t\t------------- MULTIPLICATION TABLE GENERATOR --------------");
 
-        for (int i = 0; i < 3; i++) 
+        System.out.print("\n\t\tEnter a number to display its multiplication table: ");
+        int choiceNum = s.nextInt();
+        
+        evaluating_number();
+        
+        System.out.println("\t\t-----------------------------------------------------------");
+        
+        System.out.println("\n\t\t\t     Multiplication Table for " + choiceNum + ":");
+        
+        for (int i = 1; i <= 10; i++) 
         {
-            for (int j = 0; j < 3; j++) 
+            System.out.println("\t\t\t\t     " + choiceNum + " x " + i + " = " + (choiceNum * i));
+        }
+    }
+
+    public static void intro_loading() 
+    {
+        System.out.print("\n\n\n\t      Starting the program... Please wait! ");
+        for (int i = 0; i < 25; i++) 
+        {
+            try 
             {
-            	sumOfRow[i] = sumOfRow[i] + matrix[i][j];
-            	sumOfColumn[j] = sumOfColumn[j] + matrix[i][j];
-            }
-        }
-
-        System.out.println("\n\tMatrix:");
-        for (int i = 0; i < 3; i++) 
-        {
-            for (int j = 0; j < 3; j++) 
+                Thread.sleep(100);
+            } 
+            catch (InterruptedException e) 
             {
-                System.out.print("\t" + matrix[i][j]);
+                System.out.println("\t\tError in loading delay!");
             }
-            System.out.println();
+            System.out.print("█");
         }
+        System.out.println("\n");
+    }
 
-        System.out.print("\n\tRow sums: ");
-        for (int sum : sumOfRow) 
+    public static void evaluating_number() 
+    {
+        System.out.print("\n\t\tCreating your multiplication table...");
+        for (int i = 0; i < 20; i++) 
         {
-            System.out.print(sum + " ");
+            try 
+            {
+                Thread.sleep(100);
+            } 
+            catch (InterruptedException e) 
+            {
+                System.out.println("\t\tError in loading delay!");
+            }
+            System.out.print(".");
         }
-
-        System.out.print("\n\tColumn sums: ");
-        for (int sum : sumOfColumn) 
-        {
-            System.out.print(sum + " ");
-        }
+        System.out.println("\n");
     }
 }

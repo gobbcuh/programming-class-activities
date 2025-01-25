@@ -1,43 +1,68 @@
-package practiceExercises2;
+package practiceExercises;
+
+import java.util.Scanner;
 
 public class Act8 
 {
-	public static void main(String[] args) 
-	{
-        int[][] origMatrix = 
-        {
-            {1, 2, 3},
-            {4, 5, 6},
-            {7, 8, 9}
-        };
+    public static void main(String[] args) 
+    {
+        Scanner s = new Scanner(System.in);
+
+        intro_loading();
+
+        System.out.println("\t\t---------------- TASK REMINDER PROGRAM -----------------");
+
+        System.out.print("\n\t\tEnter the task you want to be reminded of: ");
+        String task = s.nextLine();
         
-		System.out.println("\n\tOriginal Matrix:");
-        for (int i = 0; i < 3; i++) 
-        {
-            for (int j = 0; j < 3; j++) 
-            {
-                System.out.print("\t" + origMatrix[i][j] + " ");
-            }
-            System.out.println();
-        }
+        System.out.print("\t\tTimes do you want to be reminded: ");
+        int repetitions = s.nextInt();
+        
+        evaluating_reminders();
+        
+        System.out.println("\t\t--------------------------------------------------------");
 
-        int[][] transposedMatrix = new int[3][3];
-        for (int i = 0; i < 3; i++) 
+        int count = 1;
+        do 
         {
-            for (int j = 0; j < 3; j++) 
-            {
-                transposedMatrix[j][i] = origMatrix[i][j];
-            }
-        }
+            System.out.println("\t\t\t\t   Reminder " + count + ": " + task);
+            count++;
+        } while (count <= repetitions);
+    }
 
-        System.out.println("\n\tTransposed Matrix:");
-        for (int i = 0; i < 3; i++) 
+    public static void intro_loading() 
+    {
+        System.out.print("\n\n\n\t      Starting the program... Please wait! ");
+        for (int i = 0; i < 25; i++) 
         {
-            for (int j = 0; j < 3; j++) 
+            try 
             {
-                System.out.print("\t" + transposedMatrix[i][j] + " ");
+                Thread.sleep(100);
+            } 
+            catch (InterruptedException e) 
+            {
+                System.out.println("\t\tError in loading delay!");
             }
-            System.out.println();
+            System.out.print("█");
         }
-	}
+        System.out.println("\n");
+    }
+
+    public static void evaluating_reminders() 
+    {
+        System.out.print("\n\t\tSetting up your reminders...");
+        for (int i = 0; i < 20; i++) 
+        {
+            try 
+            {
+                Thread.sleep(100);
+            } 
+            catch (InterruptedException e) 
+            {
+                System.out.println("\t\tError in loading delay!");
+            }
+            System.out.print(".");
+        }
+        System.out.println("\n");
+    }
 }
