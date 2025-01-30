@@ -1,1 +1,1 @@
-# programming-class-activities
+# Programming Class Java Activities ☕
