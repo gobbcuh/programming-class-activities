@@ -1,1 +1,1 @@
-# Programming Class Java Activities ☕
+# Intermediate Programming: Java Activities ☕
