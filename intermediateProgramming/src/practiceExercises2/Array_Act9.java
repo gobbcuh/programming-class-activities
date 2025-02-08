@@ -2,13 +2,13 @@ package practiceExercises2;
 
 import java.util.Scanner;
 
-public class Act9 
+public class Array_Act9 
 {
     public static void main(String[] args) 
     {
         Scanner s = new Scanner(System.in);
 
-        System.out.print("\nEnter 7 numbers: ");
+        System.out.print("\n\tEnter 7 numbers: ");
         int input1 = s.nextInt();
         int input2 = s.nextInt();
         int input3 = s.nextInt();
@@ -32,7 +32,7 @@ public class Act9
             }
         }
 
-        System.out.println("\nSorted Array: ");
+        System.out.print("\n\tSorted Array: ");
         for (int num : sorted) 
         {
             System.out.print(num + " ");

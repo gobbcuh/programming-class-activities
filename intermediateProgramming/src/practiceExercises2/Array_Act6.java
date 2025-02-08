@@ -1,6 +1,6 @@
 package practiceExercises2;
 
-public class Act6 
+public class Array_Act6 
 {
     public static void main(String[] args) 
     {

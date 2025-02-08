@@ -2,7 +2,7 @@ package practiceExercises2;
 
 import java.util.Scanner;
 
-public class Act3
+public class Array_Act3
 {
     public static void main(String[] args) 
     {

@@ -2,7 +2,7 @@ package practiceExercises2;
 
 import java.util.Scanner;
 
-public class Act5 
+public class Array_Act5 
 {
     public static void main(String[] args) 
     {
@@ -33,22 +33,39 @@ public class Act5
         userInput[9] = input10;
         
         System.out.print("\tDuplicate numbers: ");
-        boolean isDuplicateFound = false;
+        boolean foundDuplicate = false;
         
         for (int i = 0; i < 10; i++) 
         {
+            boolean isDuplicate = false;
+            boolean isDisplayed = false;
+
             for (int j = i + 1; j < 10; j++) 
             {
                 if (userInput[i] == userInput[j]) 
                 {
-                    System.out.print(userInput[i] + " ");
-                    isDuplicateFound = true;
+                    isDuplicate = true;
                     break;
                 }
             }
+
+            for (int k = 0; k < i; k++) 
+            {
+                if (userInput[i] == userInput[k]) 
+                {
+                    isDisplayed = true;
+                    break;
+                }
+            }
+
+            if (isDuplicate && !isDisplayed) 
+            {
+                System.out.print(userInput[i] + " ");
+                foundDuplicate = true;
+            }
         }
-        
-        if (!isDuplicateFound) 
+
+        if (!foundDuplicate) 
         {
             System.out.println("\tNo duplicates found.");
         }
